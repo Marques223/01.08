@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Linha do Tempo</title>
+  <style>
+    body {
+      background-color: #f9f6f2;
+      color: #2e2e2e;
+      font-family: 'Georgia', serif;
+      line-height: 1.6;
+      padding: 40px 20px;
+      margin: 0;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.4em;
+      color: #8b3a62;
+      margin-bottom: 10px;
+    }
+
+    .tempo {
+      font-size: 1.2em;
+      color: #4a4a4a;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .mensagem {
+      background-color: #fff;
+      border-left: 4px solid #d88ca1;
+      margin: 20px auto;
+      max-width: 700px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .mensagem p {
+      margin: 10px 0;
+      font-size: 1.05em;
+      color: #3a3a3a;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #999;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Oi, meu Xuxuzinho 🤍</h1>
+    <p style="font-size: 1em; color: #555;">
+      
+    </p>
+  </header>
+
+  <section class="mensagem">
+    <p>Te amar virou meu hábito favorito.</p>
+    <p>Esse espaço é só um jeito simples de mostrar o quanto você é especial pra mim e pra dizer, de um jeito diferente, que amar você é o melhor presente da minha vida.</p>
+    <p>Te amo, Simples assim 🤍</p>
+  </section>
+
+  <div class="tempo" id="contador">
+    Já são [0 dias, 0 horas, 0 minutos, 0 segundos] vivendo o tipo de amor que muitos sonham em sentir só uma vez.
+  </div>
+
+  <section class="mensagem">
+    <p>"Eu faria tudo de novo, do mesmo jeito, só pra chegar até você."</p>
+    <p>"As long as I’m here, no one can hurt you."</p>
+  </section>
+
+  <footer>
+    Com carinho, verdade e um amor que segue firme — por nós, por tudo que somos. 🌹
+  </footer>
+
+  <script>
+    function atualizarContador() {
+      const inicio = new Date("2025-04-27T00:00:00");
+      const agora = new Date();
+      const diff = agora - inicio;
+
+      const segundos = Math.floor(diff / 1000);
+      const minutos = Math.floor(segundos / 60);
+      const horas = Math.floor(minutos / 60);
+      const dias = Math.floor(horas / 24);
+
+      const horasRestantes = horas % 24;
+      const minutosRestantes = minutos % 60;
+      const segundosRestantes = segundos % 60;
+
+      const contador = document.getElementById("contador");
+      contador.textContent = `Já são [${dias} dias, ${horasRestantes} horas, ${minutosRestantes} minutos, ${segundosRestantes} segundos] vivendo o tipo de amor que muitos sonham em sentir só uma vez.`;
+    }
+
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
+  </script>
+
+</body>
+</html>
+
