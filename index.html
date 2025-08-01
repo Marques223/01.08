@@ -3,91 +3,104 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Linha do Tempo</title>
+  <title>Desde 27 de Abril</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #f9f6f2;
-      color: #2e2e2e;
-      font-family: 'Georgia', serif;
-      line-height: 1.6;
-      padding: 40px 20px;
       margin: 0;
+      padding: 0;
+      background: #fefefe;
+      font-family: 'Quicksand', sans-serif;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 40px 20px;
     }
 
-    header {
+    .container {
+      max-width: 800px;
+      width: 100%;
       text-align: center;
-      margin-bottom: 30px;
     }
 
-    header h1 {
-      font-size: 2.4em;
-      color: #8b3a62;
+    h1 {
+      color: #d15481;
+      font-size: 2.5em;
       margin-bottom: 10px;
     }
 
-    .tempo {
-      font-size: 1.2em;
-      color: #4a4a4a;
-      margin: 20px 0;
-      text-align: center;
+    .subtitulo {
+      font-size: 1.1em;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .contador {
+      background: #fff0f5;
+      border: 1px solid #f7c9dc;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 1.3em;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
     .mensagem {
-      background-color: #fff;
-      border-left: 4px solid #d88ca1;
-      margin: 20px auto;
-      max-width: 700px;
-      padding: 25px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      background-color: #f9f9f9;
+      padding: 25px 30px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      border-left: 5px solid #d88ca1;
+      text-align: left;
     }
 
     .mensagem p {
       margin: 10px 0;
-      font-size: 1.05em;
-      color: #3a3a3a;
+      font-size: 1.1em;
     }
 
     footer {
-      text-align: center;
-      margin-top: 50px;
+      margin-top: 40px;
       font-size: 0.9em;
-      color: #999;
+      color: #aaa;
     }
 
     @media (max-width: 600px) {
-      body {
-        padding: 20px 10px;
+      .mensagem {
+        text-align: center;
+        padding: 20px;
       }
     }
   </style>
 </head>
 <body>
-
-  <header>
+  <div class="container">
     <h1>Oi, meu Xuxuzinho 🤍</h1>
-    <p style="font-size: 1em; color: #555;">
-      
-    </p>
-  </header>
+    <p class="subtitulo">Esse cantinho é só nosso — simples, mas cheio de sentimento.</p>
 
-  <section class="mensagem">
-    <p>Te amar virou meu hábito favorito.</p>
-    <p>Esse espaço é só um jeito simples de mostrar o quanto você é especial pra mim e pra dizer, de um jeito diferente, que amar você é o melhor presente da minha vida.</p>
-    <p>Te amo, Simples assim 🤍</p>
-  </section>
+    <div class="contador" id="contador">
+      Já são [0 dias, 0 horas, 0 minutos, 0 segundos] vivendo o tipo de amor que muitos sonham em sentir só uma vez.
+    </div>
 
-  <div class="tempo" id="contador">
-    Já são [0 dias, 0 horas, 0 minutos, 0 segundos] vivendo o tipo de amor que muitos sonham em sentir só uma vez.
+    <div class="mensagem">
+      <p>Te amar virou meu hábito favorito.</p>
+      <p>Esse espaço é só um jeito simples de mostrar o quanto você é especial pra mim e pra dizer, de um jeito diferente, que amar você é o melhor presente da minha vida.</p>
+      <p>Te amo, Simples assim 🤍</p>
+    </div>
+
+    <div class="mensagem">
+      <p>"Eu faria tudo de novo, do mesmo jeito, só pra chegar até você."</p>
+      <p>"As long as I’m here, no one can hurt you."</p>
+    </div>
+
+    <footer>
+      Feito com carinho. Desde 27 de abril de 2025 🌸
+    </footer>
   </div>
-
-  <section class="mensagem">
-    <p>"Eu faria tudo de novo, do mesmo jeito, só pra chegar até você."</p>
-    <p>"As long as I’m here, no one can hurt you."</p>
-  </section>
-
-  <footer>
-    Com carinho, verdade e um amor que segue firme — por nós, por tudo que somos. 🌹
-  </footer>
 
   <script>
     function atualizarContador() {
@@ -111,7 +124,7 @@
     setInterval(atualizarContador, 1000);
     atualizarContador();
   </script>
-
 </body>
 </html>
+
 
