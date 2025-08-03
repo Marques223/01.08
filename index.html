@@ -25,18 +25,27 @@
     }
 
     .digitado {
+      white-space: pre-wrap;
+      overflow: hidden;
+      border-right: .15em solid #5b4a46;
+      display: inline-block;
+      animation: blink-cursor 0.7s step-end infinite;
+    }
+
+    @keyframes blink-cursor {
+      50% { border-color: transparent; }
+    }
+
+    .digitado.h1 {
+      font-size: 2.8em;
+      color: #7b5e57;
+      margin-bottom: 30px;
+    }
+
+    .digitado.p {
       font-size: 1.6em;
       line-height: 1.8;
       color: #5b4a46;
-      white-space: pre-wrap;
-      border-right: .15em solid #5b4a46;
-      overflow: hidden;
-      display: inline-block;
-    }
-
-    h1 {
-      font-size: 2.8em;
-      color: #7b5e57;
       margin-bottom: 30px;
     }
 
@@ -64,15 +73,19 @@
         padding: 20px 10px;
       }
 
-      .digitado, .contador {
+      .digitado.p, .contador {
         font-size: 1.3em;
+      }
+
+      .digitado.h1 {
+        font-size: 2em;
       }
     }
   </style>
 </head>
 <body>
   <div class="container" id="mensagens-container">
-    <!-- Os textos vão ser inseridos aqui via JavaScript -->
+    <!-- Os textos vão aparecer aqui -->
   </div>
 
   <div class="contador" id="contador">
@@ -95,8 +108,9 @@
     const container = document.getElementById("mensagens-container");
 
     function digitarTexto(texto, index, callback) {
-      const el = document.createElement(index === 0 ? 'h1' : 'p');
-      el.classList.add('digitado');
+      const tag = index === 0 ? 'h1' : 'p';
+      const el = document.createElement(tag);
+      el.classList.add('digitado', tag === 'h1' ? 'h1' : 'p');
       container.appendChild(el);
 
       let i = 0;
@@ -105,10 +119,10 @@
         if (i < texto.length) {
           el.textContent += texto.charAt(i);
           i++;
-          setTimeout(escrever, 60);
+          setTimeout(escrever, 100); // ⏱️ velocidade ajustada
         } else {
-          el.style.borderRight = "none";
-          el.classList.remove("digitado");
+          el.style.borderRight = "none"; // remove cursor
+          el.style.animation = "none";   // para de piscar
           callback();
         }
       }
