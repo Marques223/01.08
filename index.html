@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Desde 27 de Abril</title>
   <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
       padding: 0;
       background-color: #f5f3ef;
-      font-family: 'Caveat', cursive;
+      font-family: 'Dancing Script', cursive;
       color: #3c3c3c;
       display: flex;
       flex-direction: column;
@@ -24,29 +25,17 @@
       text-align: center;
     }
 
-    .digitado {
-      white-space: pre-wrap;
-      overflow: hidden;
-      border-right: .15em solid #5b4a46;
-      display: inline-block;
-      animation: blink-cursor 0.7s step-end infinite;
-    }
-
-    @keyframes blink-cursor {
-      50% { border-color: transparent; }
-    }
-
-    .digitado.h1 {
+    h1 {
       font-size: 2.8em;
       color: #7b5e57;
       margin-bottom: 30px;
     }
 
-    .digitado.p {
+    .texto {
       font-size: 1.6em;
       line-height: 1.8;
       color: #5b4a46;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
 
     .contador {
@@ -57,7 +46,12 @@
       border-radius: 10px;
       margin-bottom: 40px;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      display: none;
+    }
+
+    .mensagem {
+      font-size: 1.5em;
+      color: #5a4b45;
+      margin-bottom: 20px;
     }
 
     footer {
@@ -65,7 +59,6 @@
       font-size: 1em;
       color: #999;
       font-family: sans-serif;
-      display: none;
     }
 
     @media (max-width: 600px) {
@@ -73,78 +66,42 @@
         padding: 20px 10px;
       }
 
-      .digitado.p, .contador {
+      .texto, .mensagem, .contador {
         font-size: 1.3em;
-      }
-
-      .digitado.h1 {
-        font-size: 2em;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container" id="mensagens-container">
-    <!-- Os textos vão aparecer aqui -->
-  </div>
+  <div class="container">
+    <h1>Oi, meu Xuxuzinho 🤍</h1>
 
-  <div class="contador" id="contador">
-    Já são [0 dias, 0 horas, 0 minutos, 0 segundos] vivendo o tipo de amor que muitos sonham em sentir só uma vez.
-  </div>
+    <div class="texto">
+      <p>Te amar virou meu hábito favorito.</p>
+      <p>Esse espaço é só um jeito simples de mostrar o quanto você é especial pra mim e pra dizer, de um jeito diferente, que amar você é o melhor presente da minha vida.</p>
+    </div>
 
-  <footer id="rodape">
-    Infinitamente, intensamente, inevitavelmente, incondicionalmente e inteiramente eu amo você, simples assim 🤍.
-  </footer>
+    <div class="contador" id="contador">
+      Já são [0 dias, 0 horas, 0 minutos, 0 segundos] vivendo o tipo de amor que muitos sonham em sentir só uma vez.
+    </div>
+
+    <div class="mensagem">
+      <p>"Eu faria tudo de novo, do mesmo jeito, só pra chegar até você."</p>
+    </div>
+
+    <div class="mensagem">
+      <p>"As long as I’m here, no one can hurt you."</p>
+    </div>
+
+    <div class="mensagem">
+    </div>
+
+    <footer>
+      Infinitamente, intensamente, inevitavelmente, incondicionalmente e inteiramente eu amo você, simples assim 🤍.
+    </footer>
+  </div>
 
   <script>
-    const mensagens = [
-      "Oi, meu Xuxuzinho 🤍",
-      "Te amar virou meu hábito favorito.",
-      "Esse espaço é só um jeito simples de mostrar o quanto você é especial pra mim e pra dizer, de um jeito diferente, que amar você é o melhor presente da minha vida.",
-      "\"Eu faria tudo de novo, do mesmo jeito, só pra chegar até você.\"",
-      "\"As long as I’m here, no one can hurt you.\""
-    ];
-
-    const container = document.getElementById("mensagens-container");
-
-    function digitarTexto(texto, index, callback) {
-      const tag = index === 0 ? 'h1' : 'p';
-      const el = document.createElement(tag);
-      el.classList.add('digitado', tag === 'h1' ? 'h1' : 'p');
-      container.appendChild(el);
-
-      let i = 0;
-
-      function escrever() {
-        if (i < texto.length) {
-          el.textContent += texto.charAt(i);
-          i++;
-          setTimeout(escrever, 100); // ⏱️ velocidade ajustada
-        } else {
-          el.style.borderRight = "none"; // remove cursor
-          el.style.animation = "none";   // para de piscar
-          callback();
-        }
-      }
-
-      escrever();
-    }
-
-    function executarMensagens(index) {
-      if (index < mensagens.length) {
-        digitarTexto(mensagens[index], index, () => executarMensagens(index + 1));
-      } else {
-        mostrarContadorERodape();
-      }
-    }
-
-    function mostrarContadorERodape() {
-      document.getElementById("contador").style.display = "block";
-      document.getElementById("rodape").style.display = "block";
-      atualizarContador();
-      setInterval(atualizarContador, 1000);
-    }
-
     function atualizarContador() {
       const inicio = new Date("2025-04-27T00:00:00");
       const agora = new Date();
@@ -160,11 +117,11 @@
       const segundosRestantes = segundos % 60;
 
       const contador = document.getElementById("contador");
-      contador.textContent = `Já são [${dias} dias, ${horasRestantes} horas, ${minutosRestantes} minutos, ${segundosRestantes} segundos] vivendo o tipo de amor que muitos sonham em sentir só uma vez.`;
+      contador.textContent = Já são [${dias} dias, ${horasRestantes} horas, ${minutosRestantes} minutos, ${segundosRestantes} segundos] vivendo o tipo de amor que muitos sonham em sentir só uma vez.;
     }
 
-    // Iniciar
-    executarMensagens(0);
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
   </script>
 </body>
-</html>
+</html>  
